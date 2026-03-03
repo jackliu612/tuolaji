@@ -1,0 +1,20 @@
+{
+  "name": "tuolaji",
+  "version": "1.0.0",
+  "description": "simple tuolaji game for raspberry pi",
+  "license": "ISC",
+  "author": "jackliu612@gmail.com",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
