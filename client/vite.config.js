@@ -6,6 +6,13 @@ export default defineConfig({
     plugins: [react()],
     server: {
         host: '0.0.0.0',
-        port: 8002
+        port: 8002,
+        proxy: {
+            '/socket.io': {
+                target: 'http://localhost:8001',
+                ws: true,
+                changeOrigin: true
+            }
+        }
     }
 })
