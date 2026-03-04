@@ -1,8 +1,9 @@
 import { createServer } from 'node:http';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-
 import express from 'express';
+
+import {setupSockets } from './sockets/socket.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,6 +16,8 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirname, '../client', 'index.html'));
 });
+
+const io = setupSockets(server);
 
 server.listen(8001, () => {
     console.log('Server running at http://localhost:8001');
